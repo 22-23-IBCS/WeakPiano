@@ -6,7 +6,7 @@
 
 #formal greeting. get the user's name and formally say hello to them
 import math
-import statistics
+
 def greet():
     name= {}
     name = input("What's your name?\n")
@@ -19,7 +19,7 @@ def circleArea(r):
     if r <= 0:
         return "Invalid circle dimensions"
     else: 
-        return math.pi * r ** 2
+        return round(math.pi * r ** 2,2)
 
 
 
@@ -33,9 +33,15 @@ def studyMore(D):
 #given a dictionary of students and their grades, calculate
 #the mean and median of the grades. print them out
 def meanMedian(D):
-    grades= list(D.values())
-    mean= statistics.mean(grades)
-    median= statistics.median(grades)
+    total = 0
+    list = []
+    for student in D:
+        total = total + D.get(student)
+        list.append(int(D.get(student)))
+        list.sort()
+        median = list[(len(list) // 2)]
+        mean = round(total/len(D),2)
+
 
     print("Average grade was: " + str(mean))
     print("Median grade was: " + str(median))
