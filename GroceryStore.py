@@ -1,3 +1,4 @@
+
 class GroceryStore():
 
 
@@ -56,13 +57,17 @@ def main():
        print(list(grocery.keys()))
        request2 = input("If you want to stop shopping, type stop, or you can shop once again.\n")
        if request2 == "stop":
-          print("Thank you for shopping with us.")
-          break
+          print("Thank you for shopping with us.\n")
        else:
           price2 = grocery.get(request2)
           many2 = int(input("How many would you want?\n"))
           print("Here you go\nYou got " + str(many2) + " "+ request2)
           print("That would be another $" + str(price2*many2) + " dollars")
+
+     
+          
+
+     
       
 
 if __name__ =="__main__":

@@ -1,26 +1,33 @@
 import random
+import time 
 
 def main():
 
-    L = [32, 14, 4, 90, 50, 55, 22, 78, 12]
-    print(L)
+    L = []
+    n = 100
+    for i in range(n):
+        L.append(random.randint(0,n))
 
 
-    while True:
-       maxPos = len(L) -1 
-       x = []
-       for i in range(len(L)):
-           randomPos = random.randint(0, maxPos)
-           x.append(L[randomPos])
+    #print(L)
+    print("commence random sort")
 
-       isSorted = True
-       print(x)
+    #sort with Bubble sort
+    start = time.time()
 
-       for i in range(len(L) -1):
-           if x[i] > x[i+1]:
-                isSorted = False
-       if isSorted == True:
-            break
 
+    for i in range(len(L)):
+        for j in range(len(L) - 1):
+            if L[j] > L[j+1]:
+                #swap
+                temp = L[j]
+                L[j] = L[j+1]
+                L[j+1] = temp
+            print(L)
+    stop = time.time()
+    total = stop-start
+    print("For " + str(n) + " elements") 
+    print("Time passed:" + str(total))
+            
 if __name__ == "__main__":
     main()

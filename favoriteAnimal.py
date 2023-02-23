@@ -1,46 +1,60 @@
-class Cat:
-    
-    def __init__(self, breed, eyecolor, tail ):
-        self.numLegs= 4
-        self.breed = breed
-        self.eyecolor = eyecolor
-        self.tail = tail
-        
-
-    def getBreed(self):
-        return self.breed
-
-    def setBreed(self, x):
-        self.breed = x
-
-    def getEyecolor(self):
-        return self.eyecolor
-
-    def setEyecolor(self, y):
-        self.eyecolor = y
-
-    def getTail(self):
-        return self.tail
-
-    def setTail(self, z):
-        self.tail = z
-
-   
-
-
 def main():
-    print("My favorite pet are cats, my cats' apperance are:")
-    cat1 = Cat("British Shorthair:", "Black colored eye,", "medium tail.")
-    cat2 = Cat("Pastoral cat:", "Yellow colored eye,", "long tail.")
-    x= cat2.getBreed()
-    y= cat2.getEyecolor()
-    z= cat2.getTail()
-    print(x,y,z)
-    cat1.setBreed("British Shorthair:")
-    print(cat1.getBreed(), cat1.getEyecolor(),cat1.getTail())
-    
 
-    
+    #Food store
+
+    Gaming = {"Gaming Mouse" : 25.00,
+             "Mousepad" : 5.00,
+             "Gfuel" : 13.00,
+              "Office Mouse" : 12.00,
+              "Gfuel Bottle" : 10.00,
+              "Mic" : 20.00,
+              "Headphones" : 25.00,
+              "Gaming Headphones" : 30.00,
+             "240hzmonitor" : 400.00,
+             "3070 PC" : 1500.00,
+             "3080 PC" : 1800.00}
+
+    print("Welcome to PC Central!")
+    print(list(Gaming.keys()))
+    request = input("What would you like to buy?\n")
+    price = Gaming.get(request)
+    many = int(input("How many would you want?\n"))
+    print("Here you go!\nYou got " + str(many) + " " + request)
+    print("That would be $" + str(round(price*many, 2)) + " dollars")
+    total=(price*many)
+
+    toBuy = []
+
+
+    while True:
+        print(list(Gaming.keys()))
+        request = input("What would you like to buy?\n")
+        price = Gaming.get(request)
+        many = int(input("How many would you want?\n"))
+        print("Here you go!\nYou got " + str(many) + " " + request)
+        print("That would be $" + str(round(price*many, 2)) + " dollars")
+        total=total+Gaming.get(request)
+
+        res = input("What would you like to buy? Enter 'stop' if done shopping\n")
+        if res == "stop":
+            print("Thanks for shopping at PC Central!!!")
+            toBuy.append(request)
+            total=round(total)+Gaming.get(request)
+            print("Your Total is $"+str(round(total)))
+            break
+        else:
+            toBuy.append(request)
+            total=round(total)+Gaming.get(request)
+            print("Your Total is $"+str(round(total))+".00")
+    print(toBuy)
+
+
+
+
+
+
+
+
 
 if __name__ == "__main__":
-    main()
+    main()  
